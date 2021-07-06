@@ -9,21 +9,29 @@ import (
 	"strings"
 )
 
-func main()  {
-	printStatus(convertGradeToFloat(readGradFromUser()))
+func main() {
+	// printStatus(convertStringToFloat64(readGradFromUser()))
+	a, err := strconv.ParseFloat("abc", 64)
+	fmt.Println(err)
+	b, err := strconv.ParseFloat("def", 64)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(a, b)
+
 }
 
-func readGradFromUser() string{
+func readGradFromUser() string {
 	fmt.Print("Enter a grade:")
 	reader := bufio.NewReader(os.Stdin)
-	input, err :=  reader.ReadString('\n')
+	input, err := reader.ReadString('\n')
 	if err != nil {
 		log.Fatal(err)
 	}
 	return input
 }
 
-func convertGradeToFloat(input string) float64 {
+func convertStringToFloat64(input string) float64 {
 	input = strings.TrimSpace(input)
 	num, err := strconv.ParseFloat(input, 64)
 	if err != nil {
@@ -35,9 +43,9 @@ func convertGradeToFloat(input string) float64 {
 func printStatus(grade float64) {
 	var staus string
 	if grade >= 60 {
-		staus = "Pass!"
+		staus = "Passing!"
 	} else {
-		staus = "Fail!"
+		staus = "Failing!"
 	}
 	fmt.Println("A grade of", grade, "is", staus)
 }
