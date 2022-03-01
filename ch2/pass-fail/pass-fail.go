@@ -10,15 +10,7 @@ import (
 )
 
 func main() {
-	// printStatus(convertStringToFloat64(readGradFromUser()))
-	a, err := strconv.ParseFloat("abc", 64)
-	fmt.Println(err)
-	b, err := strconv.ParseFloat("def", 64)
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Println(a, b)
-
+	printStatus(convertStringToFloat64(readGradFromUser()))
 }
 
 func readGradFromUser() string {
