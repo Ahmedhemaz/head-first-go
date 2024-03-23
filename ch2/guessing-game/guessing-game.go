@@ -12,8 +12,9 @@ import (
 )
 
 func main() {
-	rand.Seed(time.Now().Unix())
-	target := rand.Intn(100) + 1
+	seed := time.Now().UnixNano()
+	rad := rand.New(rand.NewSource(seed))
+	target := rad.Intn(100) + 1
 	guess(target, 10)
 }
 
