@@ -23,7 +23,6 @@ func main()  {
 
 	fmt.Println("==================")
 
-
 	fmt.Printf("%12s | %s\n", "Product", "Cost in Cents")
 	fmt.Printf("%12s | %d\n", "Stamps", 50)
 	fmt.Printf("%12s | %d\n", "Paper Clips", 9)
